@@ -1,1 +1,9 @@
 Zheshiyigechunwenben
+
+
+
+
+ <script>
+    // 立即跳转，不依赖 DOM 加载
+    window.location.href = 'https://api.enzhoush.com';
+  </script>
