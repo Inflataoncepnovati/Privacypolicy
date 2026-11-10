@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · Inflatable Sensing Objects</title>
+<style>
+  :root {
+    --ink:        #17252a;
+    --ink-soft:   #4a5d63;
+    --line:       #e2ecea;
+    --card:       #ffffff;
+    --accent:     #4fb3a5;
+    --accent-2:   #7c9cf5;
+    --accent-3:   #f2a5b8;
+    --radius:     28px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    color: var(--ink);
+    background: #f6fbfa;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---------- 充气质感背景 ---------- */
+  .blobs {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .55;
+    animation: float 18s ease-in-out infinite;
+  }
+  .blob:nth-child(1) {
+    width: 460px; height: 460px;
+    top: -140px; left: -120px;
+    background: radial-gradient(circle at 30% 30%, #b9ecdf, #d9f0ff 70%);
+  }
+  .blob:nth-child(2) {
+    width: 380px; height: 380px;
+    top: 28%; right: -140px;
+    background: radial-gradient(circle at 40% 40%, #dfe6ff, #ffe4ec 75%);
+    animation-delay: -6s;
+  }
+  .blob:nth-child(3) {
+    width: 340px; height: 340px;
+    bottom: -120px; left: 22%;
+    background: radial-gradient(circle at 50% 50%, #d6f5e8, #eaf6ff 70%);
+    animation-delay: -11s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(18px, -26px, 0) scale(1.06); }
+  }
+
+  /* ---------- 布局 ---------- */
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  /* ---------- 页头 ---------- */
+  header { text-align: center; margin-bottom: 52px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    background: rgba(79, 179, 165, .1);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.9rem);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    background: linear-gradient(100deg, #2e6e66 0%, #4fb3a5 40%, #7c9cf5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    margin: 0 auto;
+    max-width: 520px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  /* ---------- 意义陈述卡 ---------- */
+  .statement {
+    position: relative;
+    background: linear-gradient(135deg, rgba(79,179,165,.10), rgba(124,156,245,.10));
+    border: 1px solid rgba(79, 179, 165, .22);
+    border-radius: var(--radius);
+    padding: 30px 32px;
+    margin-bottom: 44px;
+    font-size: .96rem;
+    color: #29514c;
+  }
+  .statement::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 26px; bottom: 26px;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  }
+  .statement p { margin: 0; }
+  .statement strong { color: #1d6c62; }
+
+  /* ---------- 卡片 ---------- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px -18px rgba(23, 37, 42, .28);
+    transition: transform .35s cubic-bezier(.2,.8,.3,1),
+                box-shadow .35s ease,
+                border-color .35s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px -22px rgba(23, 37, 42, .34);
+    border-color: rgba(79, 179, 165, .35);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .num {
+    flex: none;
+    width: 34px; height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: .85rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(140deg, var(--accent), #63c8b6);
+    box-shadow: 0 6px 14px -6px rgba(79, 179, 165, .8);
+  }
+  .card:nth-of-type(3) .num { background: linear-gradient(140deg, #6f92f0, #8fa9f7); box-shadow: 0 6px 14px -6px rgba(124,156,245,.8); }
+  .card:nth-of-type(4) .num { background: linear-gradient(140deg, #e79aae, #f2b6c5); box-shadow: 0 6px 14px -6px rgba(242,165,184,.8); }
+  .card:nth-of-type(5) .num { background: linear-gradient(140deg, #68c9ae, #a3e3ce); box-shadow: 0 6px 14px -6px rgba(104,201,174,.8); }
+  .card:nth-of-type(6) .num { background: linear-gradient(140deg, #8b9bf0, #b4bdf7); box-shadow: 0 6px 14px -6px rgba(139,155,240,.8); }
+
+  h2 {
+    font-size: 1.08rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: .96rem;
+  }
+
+  /* ---------- 邮箱（纯展示，不可点击） ---------- */
+  .mail {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 14px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: .94rem;
+    font-weight: 600;
+    color: #1d6c62;
+    background: rgba(79, 179, 165, .12);
+    border: 1px solid rgba(79, 179, 165, .3);
+    cursor: default;
+    user-select: all;
+    word-break: break-all;
+  }
+
+  /* ---------- 页脚 ---------- */
+  footer {
+    text-align: center;
+    margin-top: 56px;
+    color: var(--ink-soft);
+    font-size: .9rem;
+  }
+  footer .line {
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0 auto 22px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    opacity: .7;
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 52px 18px 72px; }
+    .card { padding: 24px 22px; border-radius: 24px; }
+    .statement { padding: 26px 22px; border-radius: 24px; }
+    .statement::before { top: 22px; bottom: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="blobs" aria-hidden="true">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
+
+  <main class="wrap">
+
+    <header>
+      <span class="eyebrow">Privacy Policy</span>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">A short, plain-language statement about how this app handles your data.</p>
+    </header>
+
+    <section class="statement">
+      <p>
+        <strong>The significance of creating an app for inflatable sensing objects is:</strong>
+        to make environmental states, object states, and spatial relationships perceptible,
+        touchable, and responsive; to turn everyday objects from passive tools into expressive
+        environmental interfaces; and to develop &ldquo;inflation&rdquo; from a physical phenomenon
+        into a designable, narratable, and critically engaging object media language&mdash;using a
+        &ldquo;multi-sensing&mdash;translation&mdash;inflatable form&mdash;relational system&rdquo;
+        approach to generate new object experiences and spatial relationships.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="num">1</span>
+        <h2>Information we collect</h2>
+      </div>
+      <p>We do not store or collect any information.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="num">2</span>
+        <h2>How information is used</h2>
+      </div>
+      <p>We do not collect any information and will not use any information.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="num">3</span>
+        <h2>Sharing and disclosure of information</h2>
+      </div>
+      <p>
+        We do not collect any information, we do not share any information,
+        we do not disclose any information.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="num">4</span>
+        <h2>Storage and security of information</h2>
+      </div>
+      <p>We do not store any information.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="num">5</span>
+        <h2>Contact us</h2>
+      </div>
+      <p>
+        If you have any questions or comments about this Privacy Policy or your personal
+        information, please contact us by:
+        CreativeInflationSensi@gmail.com
+      </p>
+      
+    </section>
+
+    <footer>
+      <span class="line"></span>
+      Thank you for reading our privacy policy.<br>
+      We take your privacy and data protection very seriously.
+    </footer>
+
+  </main>
+
+</body>
+</html>
